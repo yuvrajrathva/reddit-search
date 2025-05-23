@@ -1,0 +1,26 @@
+{
+  "name": "Reddit Search",
+  "description": "Extension for search results from reddit.",
+  "version": "1.0",
+  "manifest_version": 3,
+  "action": {
+    "default_popup": "index.html",
+    "default_icon": {
+      "16": "reddit-search.png"
+    },
+    "default_title": "Reddit Search"
+  },
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": false
+  },
+  "permissions": ["scripting"],
+  "host_permissions": ["https://www.google.com/*"], 
+  "content_scripts": [
+    {
+      "matches": ["https://www.google.com/search*"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}
